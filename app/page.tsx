@@ -1,6 +1,6 @@
 'use client'
-import { useState } from 'react'
 import Link from 'next/link'
+import { useState } from 'react'
 
 export default function HomePage() {
   const [showAIDropdown, setShowAIDropdown] = useState(false)
@@ -23,9 +23,9 @@ export default function HomePage() {
                 <Link href="/suppliers" className="text-gray-700 hover:text-blue-600">🏢 Suppliers</Link>
                 <Link href="/rfq" className="text-gray-700 hover:text-blue-600">📋 RFQ</Link>
                 <Link href="/admin" className="text-gray-700 hover:text-blue-600">📊 Admin</Link>
-                
+
                 <div className="relative">
-                  <button 
+                  <button
                     onClick={() => setShowAIDropdown(!showAIDropdown)}
                     className="flex items-center gap-2 text-gray-700 hover:text-blue-600 border border-gray-300 px-4 py-2 rounded-lg"
                   >
@@ -51,7 +51,7 @@ export default function HomePage() {
       <main className="container mx-auto px-4 py-16">
         <div className="text-center max-w-6xl mx-auto">
           <h1 className="text-6xl font-bold mb-8">
-            <span className="text-black">India's Leading</span><br />
+            <span className="text-black">India&apos;s Leading</span><br />
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">AI-Powered B2B Marketplace</span>
           </h1>
 

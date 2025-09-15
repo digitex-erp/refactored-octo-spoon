@@ -12,7 +12,7 @@ export default function LoginPage() {
         <div className="text-center mb-8">
           <div className="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">B</div>
           <h1 className="text-2xl font-bold text-gray-900">Welcome to Bell24h</h1>
-          <p className="text-gray-600">India's AI-Powered B2B Marketplace</p>
+          <p className="text-gray-600">India&apos;s AI-Powered B2B Marketplace</p>
         </div>
 
         {step === 'phone' ? (
