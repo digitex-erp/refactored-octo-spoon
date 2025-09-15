@@ -1,5 +1,5 @@
-import './globals.css'
 import type { Metadata } from 'next'
+import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Bell24h - AI Powered B2B Marketplace',

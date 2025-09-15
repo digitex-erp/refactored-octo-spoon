@@ -1,103 +1,89 @@
-import Image from "next/image";
+'use client'
+import Link from 'next/link'
+import { useState } from 'react'
 
-export default function Home() {
+export default function HomePage() {
+  const [showAIDropdown, setShowAIDropdown] = useState(false)
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      <nav className="bg-white shadow-lg sticky top-0 z-50">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center gap-8">
+              <Link href="/" className="flex items-center gap-2">
+                <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">B</div>
+                <div>
+                  <div className="font-bold text-xl">Bell24h</div>
+                  <div className="text-xs text-gray-600">Enterprise B2B</div>
+                </div>
+              </Link>
+              <div className="hidden md:flex items-center gap-6">
+                <Link href="/" className="text-gray-700 hover:text-blue-600">🏠 Home</Link>
+                <Link href="/suppliers" className="text-gray-700 hover:text-blue-600">🏢 Suppliers</Link>
+                <Link href="/rfq" className="text-gray-700 hover:text-blue-600">📋 RFQ</Link>
+                <Link href="/admin" className="text-gray-700 hover:text-blue-600">📊 Admin</Link>
+                
+                <div className="relative">
+                  <button 
+                    onClick={() => setShowAIDropdown(!showAIDropdown)}
+                    className="flex items-center gap-2 text-gray-700 hover:text-blue-600 border border-gray-300 px-4 py-2 rounded-lg"
+                  >
+                    🤖 AI Features <span className="text-xs">▼</span>
+                  </button>
+                  {showAIDropdown && (
+                    <div className="absolute top-full mt-2 bg-white shadow-xl rounded-lg py-2 w-64">
+                      <Link href="/dashboard" className="block px-4 py-2 hover:bg-gray-100">📊 AI Dashboard</Link>
+                      <Link href="/voice-rfq" className="block px-4 py-2 hover:bg-gray-100">🎤 Voice RFQ</Link>
+                      <Link href="/ai-explainability" className="block px-4 py-2 hover:bg-gray-100">🧠 AI Explainability</Link>
+                      <Link href="/risk-scoring" className="block px-4 py-2 hover:bg-gray-100">⚠️ Risk Scoring</Link>
+                      <Link href="/market-data" className="block px-4 py-2 hover:bg-gray-100">📈 Market Data</Link>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+            <Link href="/login" className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold">Login</Link>
+          </div>
+        </div>
+      </nav>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <main className="container mx-auto px-4 py-16">
+        <div className="text-center max-w-6xl mx-auto">
+          <h1 className="text-6xl font-bold mb-8">
+            <span className="text-black">India&apos;s Leading</span><br />
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">AI-Powered B2B Marketplace</span>
+          </h1>
+
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            <span className="px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">🇮🇳 Made in India</span>
+            <span className="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">🏛️ GST Compliant</span>
+            <span className="px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">🏪 MSME Friendly</span>
+            <span className="px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">💳 UPI Payments</span>
+            <span className="px-4 py-2 bg-pink-100 text-pink-800 rounded-full text-sm font-medium">🗣️ Hindi Support</span>
+          </div>
+
+          <p className="text-xl text-gray-700 mb-8 max-w-4xl mx-auto">
+            Connect with verified Indian suppliers and buyers using advanced AI matching, secure escrow payments, and intelligent analytics for seamless B2B transactions.
+          </p>
+
+          <p className="text-lg text-blue-600 mb-12">📍 Based in Mumbai, Maharashtra - Serving All India</p>
+
+          <div className="bg-white rounded-lg shadow-xl p-2 max-w-4xl mx-auto flex gap-2">
+            <input type="text" placeholder="What are you looking for? (e.g., 'steel pipes', 'textiles')" className="flex-1 px-6 py-4 text-lg border-none outline-none" />
+            <select className="px-4 py-2 border-l border-gray-200 bg-white text-gray-700">
+              <option>All Categories</option>
+              <option>Manufacturing</option>
+              <option>Textiles</option>
+              <option>Electronics</option>
+              <option>Construction</option>
+            </select>
+            <button className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold flex items-center gap-2">
+              🔍 AI Search
+            </button>
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
-  );
+  )
 }
