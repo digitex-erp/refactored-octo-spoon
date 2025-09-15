@@ -1,8 +1,9 @@
 import './globals.css'
+import type { Metadata } from 'next'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Bell24h',
-  description: 'AI Powered B2B Marketplace',
+  description: 'India\'s Leading AI-Powered B2B Marketplace',
 }
 
 export default function RootLayout({
@@ -12,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      <body className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 antialiased">
         {children}
       </body>
     </html>
